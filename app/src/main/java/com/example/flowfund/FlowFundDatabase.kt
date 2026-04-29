@@ -5,14 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-// Tells Room which tables exist and what version the DB is
+
 @Database(entities = [Expense::class], version = 1, exportSchema = false)
 abstract class FlowFundDatabase : RoomDatabase() {
 
     abstract fun expenseDao(): ExpenseDao
 
     companion object {
-        // Singleton — only one database instance ever exists
+
         @Volatile
         private var INSTANCE: FlowFundDatabase? = null
 

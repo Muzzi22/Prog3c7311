@@ -68,8 +68,8 @@
                 android:paddingEnd="16dp"
                 android:layout_marginBottom="24dp"/>
 
-            <!-- Sign In Button -->
-            <Button
+            <!-- Sign In Button — AppCompat to keep green styling -->
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
@@ -78,6 +78,8 @@
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:background="@drawable/rounded_button_green"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
                 android:layout_marginBottom="16dp"/>
 
             <TextView
@@ -89,13 +91,15 @@
                 android:layout_marginBottom="16dp"/>
 
             <!-- Create Account Button -->
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCreateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:text="Create Account"
                 android:textColor="@color/text_dark"
                 android:background="@drawable/rounded_button_outline"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
                 android:layout_marginBottom="16dp"/>
 
             <!-- Forgot Password -->

@@ -86,4 +86,62 @@
         android:divider="@null"
         android:dividerHeight="0dp"/>
 
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:elevation="8dp">
+
+        <!-- Home Tab -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏠"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textSize="11sp"
+                android:textColor="@color/text_gray"/>
+        </LinearLayout>
+
+        <!-- Categories Tab — highlighted green because we are here -->
+        <LinearLayout
+            android:id="@+id/navCategories"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📂"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories"
+                android:textSize="11sp"
+                android:textColor="@color/green_accent"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

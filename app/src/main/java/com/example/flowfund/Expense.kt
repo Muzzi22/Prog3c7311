@@ -14,5 +14,5 @@ data class Expense(
     val startTime: String,
     val endTime: String,
     val photoPath: String? = null,
-    val isRecurring: Boolean = false    // true = recurring expense
+    val isRecurring: Boolean = false
 )

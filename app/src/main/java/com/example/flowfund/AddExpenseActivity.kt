@@ -35,7 +35,7 @@ class AddExpenseActivity : AppCompatActivity() {
     private var receiptBitmap: Bitmap? = null
     private var savedPhotoPath: String? = null
 
-    // ── Camera launcher ──────────────────────────────────────────────────────
+
     private val cameraLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -48,7 +48,7 @@ class AddExpenseActivity : AppCompatActivity() {
             }
         }
 
-    // ── Gallery launcher ─────────────────────────────────────────────────────
+
     private val galleryLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -62,21 +62,19 @@ class AddExpenseActivity : AppCompatActivity() {
             }
         }
 
-    // ── Camera permission launcher ───────────────────────────────────────────
+//Camera permission
     private val cameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             if (granted) openCamera()
             else Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
         }
 
-    // ── onCreate ─────────────────────────────────────────────────────────────
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
+    override fun onCreate(savedInstanceState: Bundle?) {super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
 
         Log.d(TAG, "AddExpenseActivity started")
 
-        // Find all views
         val etAmount        = findViewById<EditText>(R.id.etAmount)
         val etDescription   = findViewById<EditText>(R.id.etDescription)
         val tvDate          = findViewById<TextView>(R.id.tvDate)
@@ -91,12 +89,12 @@ class AddExpenseActivity : AppCompatActivity() {
         val btnEntertain    = findViewById<AppCompatButton>(R.id.btnCatEntertain)
         val btnCustom       = findViewById<AppCompatButton>(R.id.btnCatCustom)
 
-        // Default date = today
+
         val today = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
         tvDate.text = "📅  $today"
         selectedDate = today
 
-        // ── Category selection ────────────────────────────────────────────────
+
         val categoryButtons = listOf(btnFood, btnTransport, btnUtilities, btnEntertain)
 
         fun highlightCategory(selected: AppCompatButton, name: String) {
@@ -117,7 +115,7 @@ class AddExpenseActivity : AppCompatActivity() {
         btnUtilities.setOnClickListener { highlightCategory(btnUtilities, "Utilities") }
         btnEntertain.setOnClickListener { highlightCategory(btnEntertain, "Entertainment") }
 
-        // Start with Food highlighted by default
+
         btnFood.setBackgroundResource(R.drawable.rounded_button_green)
         btnFood.setTextColor(getColor(R.color.text_dark))
 
@@ -145,7 +143,7 @@ class AddExpenseActivity : AppCompatActivity() {
                 .show()
         }
 
-        // ── Date picker ───────────────────────────────────────────────────────
+
         tvDate.setOnClickListener {
             val cal = Calendar.getInstance()
             DatePickerDialog(
@@ -161,7 +159,7 @@ class AddExpenseActivity : AppCompatActivity() {
             ).show()
         }
 
-        // ── Time pickers ──────────────────────────────────────────────────────
+
         tvStartTime.setOnClickListener {
             val cal = Calendar.getInstance()
             TimePickerDialog(this, { _, hour, minute ->
@@ -180,13 +178,13 @@ class AddExpenseActivity : AppCompatActivity() {
             }, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
         }
 
-        // ── Recurring switch ──────────────────────────────────────────────────
+
         switchRecurring.setOnCheckedChangeListener { _, isChecked ->
             isRecurring = isChecked
             Log.d(TAG, "Recurring: $isRecurring")
         }
 
-        // ── Photo button ──────────────────────────────────────────────────────
+
         btnAttachPhoto.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Attach Receipt Photo")
@@ -198,7 +196,7 @@ class AddExpenseActivity : AppCompatActivity() {
                 }.show()
         }
 
-        // ── Save button ───────────────────────────────────────────────────────
+//        Save
         btnSaveExpense.setOnClickListener {
             val amount      = etAmount.text.toString().trim()
             val description = etDescription.text.toString().trim()

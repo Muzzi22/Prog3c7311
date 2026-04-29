@@ -1,5 +1,6 @@
 package com.example.flowfund
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 class CategoryActivity : AppCompatActivity() {
 
-    // This list holds all the category names
     private val categoryList = mutableListOf<String>()
     private lateinit var adapter: CategoryAdapter
 
@@ -18,19 +18,16 @@ class CategoryActivity : AppCompatActivity() {
 
         val etCategoryName = findViewById<EditText>(R.id.etCategoryName)
         val btnAddCategory = findViewById<Button>(R.id.btnAddCategory)
-        val lvCategories = findViewById<ListView>(R.id.lvCategories)
+        val lvCategories   = findViewById<ListView>(R.id.lvCategories)
 
-        // Add some default categories to start with
+        // Default categories
         categoryList.addAll(listOf("🛒 Food", "🚌 Transport", "💡 Utilities", "🎬 Entertainment"))
 
-        // Set up the adapter (connects our list to the ListView)
         adapter = CategoryAdapter()
         lvCategories.adapter = adapter
 
-        // When the user taps "+ Add"
         btnAddCategory.setOnClickListener {
             val name = etCategoryName.text.toString().trim()
-
             when {
                 name.isEmpty() -> {
                     Toast.makeText(this, "Please enter a category name", Toast.LENGTH_SHORT).show()
@@ -40,15 +37,26 @@ class CategoryActivity : AppCompatActivity() {
                 }
                 else -> {
                     categoryList.add(name)
-                    adapter.notifyDataSetChanged() // refresh the list
+                    adapter.notifyDataSetChanged()
                     etCategoryName.text.clear()
                     Toast.makeText(this, "'$name' added!", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+
+        // Bottom nav — go back to Home
+        findViewById<LinearLayout>(R.id.navHome).setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+        }
+
+        // Bottom nav — already on Categories
+        findViewById<LinearLayout>(R.id.navCategories).setOnClickListener {
+            // Already here
+        }
     }
 
-    // Inner class that controls how each row looks
     inner class CategoryAdapter : BaseAdapter() {
 
         override fun getCount(): Int = categoryList.size
@@ -58,12 +66,11 @@ class CategoryActivity : AppCompatActivity() {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val view = convertView ?: layoutInflater.inflate(R.layout.item_category, parent, false)
 
-            val tvName = view.findViewById<TextView>(R.id.tvCategoryName)
+            val tvName   = view.findViewById<TextView>(R.id.tvCategoryName)
             val tvDelete = view.findViewById<TextView>(R.id.tvDelete)
 
             tvName.text = categoryList[position]
 
-            // Delete a category when ✕ is tapped
             tvDelete.setOnClickListener {
                 val removed = categoryList[position]
                 categoryList.removeAt(position)

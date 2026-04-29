@@ -4,19 +4,19 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
-// DAO = Data Access Object — this is how we talk to the database
+//Data Access Object
 @Dao
 interface ExpenseDao {
 
-    // Save a new expense
+//    Save new expense
     @Insert
     suspend fun insertExpense(expense: Expense)
 
-    // Get ALL expenses (newest first)
+//     Get all expenses
     @Query("SELECT * FROM expenses ORDER BY id DESC")
     suspend fun getAllExpenses(): List<Expense>
 
-    // Get expenses for a specific category
+//     Get expenses spec cat
     @Query("SELECT * FROM expenses WHERE category = :category ORDER BY id DESC")
     suspend fun getExpensesByCategory(category: String): List<Expense>
 }

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Navy Header -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="140dp"
@@ -36,14 +36,14 @@
                 android:layout_marginTop="4dp"/>
         </LinearLayout>
 
-        <!-- Form Body -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- CATEGORY CARD -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:padding="12dp"
                 android:layout_marginBottom="16dp">
 
-                <!-- Row 1 -->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -108,7 +108,6 @@
                         android:insetBottom="0dp"/>
                 </LinearLayout>
 
-                <!-- Row 2 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -147,7 +146,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- DETAILS CARD -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -166,7 +165,7 @@
                 android:padding="16dp"
                 android:layout_marginBottom="16dp">
 
-                <!-- Amount -->
+<!--                 Amount -->
                 <EditText
                     android:id="@+id/etAmount"
                     android:layout_width="match_parent"
@@ -181,7 +180,7 @@
                     android:paddingEnd="16dp"
                     android:layout_marginBottom="10dp"/>
 
-                <!-- Description -->
+<!--                 Description -->
                 <EditText
                     android:id="@+id/etDescription"
                     android:layout_width="match_parent"
@@ -196,7 +195,7 @@
                     android:paddingEnd="16dp"
                     android:layout_marginBottom="10dp"/>
 
-                <!-- Date -->
+<!--                 Date -->
                 <TextView
                     android:id="@+id/tvDate"
                     android:layout_width="match_parent"
@@ -213,7 +212,7 @@
                     android:clickable="true"
                     android:focusable="true"/>
 
-                <!-- Start + End Time side by side -->
+<!--                Start and End time-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -283,7 +282,7 @@
 
             </LinearLayout>
 
-            <!-- PHOTO CARD -->
+<!--            Phtoto-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -331,7 +330,7 @@
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
 
-            <!-- SAVE BUTTON -->
+<!--            Save Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSaveExpense"
                 android:layout_width="match_parent"
