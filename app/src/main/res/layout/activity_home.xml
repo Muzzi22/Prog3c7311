@@ -427,6 +427,50 @@
                 android:textSize="11sp"
                 android:textColor="@color/text_gray"/>
         </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navGoals"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎯"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goals"
+            android:textSize="11sp"
+            android:textColor="@color/text_gray"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/navExpenses"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📋"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expenses"
+            android:textSize="11sp"
+            android:textColor="@color/text_gray"/>
+    </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

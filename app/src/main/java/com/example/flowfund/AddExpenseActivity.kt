@@ -90,7 +90,7 @@ class AddExpenseActivity : AppCompatActivity() {
         val btnCustom       = findViewById<AppCompatButton>(R.id.btnCatCustom)
 
 
-        val today = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+        val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         tvDate.text = "📅  $today"
         selectedDate = today
 
@@ -149,7 +149,7 @@ class AddExpenseActivity : AppCompatActivity() {
             DatePickerDialog(
                 this,
                 { _, year, month, day ->
-                    selectedDate = "%02d/%02d/%04d".format(day, month + 1, year)
+                    selectedDate = "%04d-%02d-%02d".format(year, month + 1, day)
                     tvDate.text = "📅  $selectedDate"
                     Log.d(TAG, "Date: $selectedDate")
                 },

@@ -37,6 +37,16 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, CategoryActivity::class.java))
         }
 
+        // Bottom nav — go to Goals (YOUR screen)
+        findViewById<LinearLayout>(R.id.navGoals)?.setOnClickListener {
+            startActivity(Intent(this, GoalsActivity::class.java))
+        }
+
+        // Bottom nav — go to Expense List (YOUR screen)
+        findViewById<LinearLayout>(R.id.navExpenses)?.setOnClickListener {
+            startActivity(Intent(this, ExpenseListActivity::class.java))
+        }
+
         // Logout button
         findViewById<Button>(R.id.btnLogout)?.setOnClickListener {
             AlertDialog.Builder(this)

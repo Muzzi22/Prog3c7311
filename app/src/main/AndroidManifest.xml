@@ -27,6 +27,9 @@
         <activity android:name=".HomeActivity"/>
         <activity android:name=".CategoryActivity"/>
         <activity android:name=".AddExpenseActivity"/>
+        <activity android:name=".GoalsActivity" android:exported="false" />
+        <activity android:name=".ExpenseListActivity" android:exported="false" />
+        <activity android:name=".PhotoViewActivity" android:exported="false" />
     </application>
 
 </manifest>

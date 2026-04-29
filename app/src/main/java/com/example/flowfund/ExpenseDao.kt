@@ -16,7 +16,10 @@ interface ExpenseDao {
     @Query("SELECT * FROM expenses ORDER BY id DESC")
     suspend fun getAllExpenses(): List<Expense>
 
-//     Get expenses spec cat
+
     @Query("SELECT * FROM expenses WHERE category = :category ORDER BY id DESC")
     suspend fun getExpensesByCategory(category: String): List<Expense>
+
+    @Query("SELECT * FROM expenses WHERE date BETWEEN :start AND :end")
+    fun getExpensesByPeriod(start: String, end: String): List<Expense>
 }

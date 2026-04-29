@@ -6,10 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [Expense::class], version = 1, exportSchema = false)
+@Database(entities = [Expense::class, Goal::class], version = 2, exportSchema = false)
 abstract class FlowFundDatabase : RoomDatabase() {
 
     abstract fun expenseDao(): ExpenseDao
+
+    abstract fun goalDao(): GoalDao
 
     companion object {
 
@@ -22,7 +24,10 @@ abstract class FlowFundDatabase : RoomDatabase() {
                     context.applicationContext,
                     FlowFundDatabase::class.java,
                     "flowfund_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
+                    .build()
                 INSTANCE = instance
                 instance
             }
